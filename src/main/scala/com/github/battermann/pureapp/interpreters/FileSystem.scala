@@ -7,7 +7,7 @@ import cats.effect.IO
 object FileSystem {
   def readLines(name: String): IO[Either[Throwable, List[String]]] =
     IO {
-      io.Source.fromFile(name).getLines.toList
+      io.Source.fromFile(name).getLines().toList
     }.attempt
 
   def save(name: String, content: String): IO[Either[Throwable, Unit]] =
